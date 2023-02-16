@@ -28,7 +28,7 @@ export class userModel {
       const result = await connection.query(sql, [id]);
       return result.rows[0];
     } catch (error) {
-      throw new Error(`Couldn't find product of id = ${id}. Error: ${error}`);
+      throw new Error(`Couldn't find user of id = ${id}. Error: ${error}`);
     }
   }
   async create(u: User): Promise<User> {
@@ -41,27 +41,4 @@ export class userModel {
       throw new Error(`Couldn't create user of name: ${u.firstName}. Error: ${error}`);
     }
   }
-
-  async delete(id: number): Promise<User> {
-    try {
-      const sql = 'DELETE FROM users where id = ($1);';
-      const result = await connection.query(sql, [id]);
-      return result.rows[0];
-    } catch (error) {
-      throw new Error(`Couldn't delete user of id = ${id}. Error: ${error}`);
-    }
-  }
-
-  //   async authenticate(firstName: string, password: string): Promise<User | null> {
-  //     const sql = `SELECT userPassword from users where firstName=${firstName}`;
-  //     const result = await connection.query(sql);
-
-  //     if (result.rows.length) {
-  //       const user = result.rows[0];
-  //       if (bcrypt.compareSync(password + pepper, user.userPassword)) {
-  //         return user;
-  //       }
-  //     }
-  //     return null;
-  //   }
 }
