@@ -7,7 +7,6 @@ import { User } from '../models/userModel';
 import { Product } from '../models/productModel';
 import { Order } from '../models/orderModel';
 
-userRoutes(app);
 describe('Testing all handlers', () => {
   const user: User = {
     firstName: 'Adel',
@@ -25,12 +24,13 @@ describe('Testing all handlers', () => {
     orderStatus: 'complete',
     userID: 1
   };
+
   let token: string = 'Bearer ';
   userRoutes(app);
   productRoutes(app);
   orderRoutes(app);
 
-  describe('Test User model', () => {
+  describe('Test User handler', () => {
     it('Should create new users', async () => {
       const res = await request(app).post('/users').send(user);
       expect(res.status).toBe(200);
@@ -42,9 +42,14 @@ describe('Testing all handlers', () => {
       const res = await request(app).get('/products').set('Authorization', token);
       expect(res.status).toBe(200);
     });
+
+    it('Should return user details by id', async () => {
+      const res = await request(app).get('/users/1').set('Authorization', token);
+      expect(res.status).toBe(200);
+    });
   });
 
-  describe('Test Product model', () => {
+  describe('Test Product handler', () => {
     it('Add new product', async () => {
       const res = await request(app).post('/products').set('Authorization', token).send(product);
       // console.log('auth-token->', token);
@@ -56,10 +61,15 @@ describe('Testing all handlers', () => {
       const res = await request(app).get('/products');
       expect(res.status).toBe(200);
     });
+
+    it('Should return product details by id', async () => {
+      const res = await request(app).get('/products/1').set('Authorization', token);
+      expect(res.status).toBe(200);
+    });
   });
 
-  describe('Test Order module', () => {
-    it('Should return orders by user ID', async () => {
+  describe('Test Order handler', () => {
+    it('Should return orders by user ID (Show order)', async () => {
       const res = await request(app)
         .get('/orders/' + order.userID)
         .set('Authorization', token);
