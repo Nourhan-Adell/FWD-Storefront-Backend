@@ -1,12 +1,10 @@
 # Online Store Backend
 
 ## About:
-
 In this project, I've created a RESTful API for online store.
 PORT: 7000 - [Main Page](http://localhost:7000)
 
 ## Database Setup:
-
 - "CREATE DATABASE onlinestore;"
 - "CREATE DATABASE onlinestore_test"
 - Database PORT = 5432
@@ -14,7 +12,6 @@ PORT: 7000 - [Main Page](http://localhost:7000)
 ## Database Schema:
 
 ### Relations:
-
     - users-orders relationship --> One-to-one relation ship
       (Each user may has an order at one time.)
     - product-orders relationship --> Many-to-many relationship
@@ -50,26 +47,20 @@ PORT: 7000 - [Main Page](http://localhost:7000)
 ## API Endpoints:
 
 ### 1. Products:
-<<<<<<< HEAD
-
 - Return all products [Index](http://localhost:7000/products) - (http://localhost:7000/products)
 - Return Product details [Show](http://localhost:7000/products/:id) - (http://localhost:7000/products/:id)
 - Create new product [Create](http://localhost:7000/products) - (http://localhost:7000/products)
 
 ### 2. Users:
-
 - Return all users [Index](http://localhost:7000/users) - (http://localhost:7000/users)
 - Return user details [Show](http://localhost:7000/users/:id) - (http://localhost:7000/users/:id)
 - Create new user [Create](http://localhost:7000/users) - (http://localhost:7000/users)
 
 ### 3. Orders:
-
 - Return orders of certain user [ShowOrder](http://localhost:7000/orders/:userID) - (http://localhost:7000/orders/:userID)
 - Return all the completed orders [ShowCompleteOrders](http://localhost:7000/orders/:orderStatus) - (http://localhost:7000/orders/:orderStatus)
 
 ## 3.Dependencies script:
-
-=======
   - Return all products [Index](http://localhost:7000/products) - (http://localhost:7000/products)
   - Return Product details [Show](http://localhost:7000/products/:id) - (http://localhost:7000/products/:id)
   - Create new product [Create](http://localhost:7000/products) - (http://localhost:7000/products)
@@ -84,19 +75,13 @@ PORT: 7000 - [Main Page](http://localhost:7000)
   - Return all the completed orders [ShowCompleteOrders](http://localhost:7000/orders/:orderStatus) - (http://localhost:7000/orders/:orderStatus)
     
 ## Dependencies script:
->>>>>>> c437fe7074d667685f55478109fd256d4fa0da7a
 - Build the ts file: ("build": "npx tsc")
 - Run Eslint: ("lint": "eslint \"dist/\*_/_.js\"")
 - Run Prettier: ("prettier": "prettier --config .prettierrc \"dist/\*_/_.js\" --write")
 - Run the app: ("start": "nodemon src/app.ts" )
 - Testing: ("ENV=test && npx tsc && db-migrate --env test up && jasmine && db-migrate db:drop test")
 
-<<<<<<< HEAD
-## 4. Project structure:
-=======
 ## Project structure:
->>>>>>> c437fe7074d667685f55478109fd256d4fa0da7a
-
     .
     ├── spec
     |     └──support
