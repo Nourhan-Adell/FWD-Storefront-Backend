@@ -18,14 +18,14 @@ In this project, I've created a RESTful API for online store.
   - Return orders of certain user [ShowOrder](http://localhost:7000/orders/:userID) - (http://localhost:7000/orders/:userID)
   - Return all the completed orders [ShowCompleteOrders](http://localhost:7000/orders/:orderStatus) - (http://localhost:7000/orders/:orderStatus)
     
- ### 3.Dependencies script:
+## Dependencies script:
 - Build the ts file: ("build": "npx tsc")
 - Run Eslint: ("lint": "eslint \"dist/**/*.js\"")
 - Run Prettier: ("prettier": "prettier --config .prettierrc \"dist/**/*.js\" --write")
 - Run the app: ("start": "nodemon src/app.ts" )
 - Testing: ("ENV=test && npx tsc && db-migrate --env test up && jasmine && db-migrate db:drop test")
 
- ### 4. Project structure:
+## Project structure:
 
     .
     ├── spec
