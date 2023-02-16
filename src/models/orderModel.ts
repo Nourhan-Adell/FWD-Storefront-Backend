@@ -21,7 +21,7 @@ export class orderModel {
 
   async showOrder(userID: number): Promise<Order> {
     try {
-      const sql = 'SELECT id, quatity, orderStatus FROM orders where "userID" = $1;';
+      const sql = 'SELECT id, quatity, orderStatus, "userID" FROM orders where "userID" = $1;';
       const result = await connection.query(sql, [userID]);
       return result.rows[0];
     } catch (error) {
@@ -29,12 +29,11 @@ export class orderModel {
     }
   }
 
-  async showCompletedOrders(): Promise<Order> {
+  async showCompletedOrders(): Promise<Order[]> {
     try {
       const sql = `SELECT id, quatity, orderStatus FROM orders WHERE orderStatus = 'complete';`;
-      console.log('sql', sql);
       const result = await connection.query(sql);
-      return result.rows[0];
+      return result.rows;
     } catch (error) {
       throw new Error(`Couldn't retun the completed orders. Error: ${error}`);
     }
