@@ -15,7 +15,6 @@ const showOrder = async (req: Request, res: Response) => {
 const showCompletedOrders = async (req: Request, res: Response) => {
   try {
     const order = await store.showCompletedOrders();
-    console.log(req.params.orderStatus);
     res.status(200).json(order);
   } catch (err) {
     res.status(400).json(err);
