@@ -1,0 +1,16 @@
+{
+  "rules": {
+    "semi": ["error", "always"],
+    "@typescript-eslint/no-var-requires": 0,
+    "@typescript-eslint/ban-types": 0
+
+    // "parser": 0
+  },
+  "parserOptions": {
+    "ecmaVersion": "latest",
+    "sourceType": "module",
+    "parser": "@babel/eslint-parser"
+  },
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended"],
+  "plugins": ["@typescript-eslint"]
+}
