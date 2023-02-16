@@ -9,6 +9,7 @@ const showOrder = async (req: Request, res: Response) => {
     res.json(order);
   } catch (err) {
     res.status(400).json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
@@ -18,6 +19,7 @@ const showCompletedOrders = async (req: Request, res: Response) => {
     res.status(200).json(order);
   } catch (err) {
     res.status(400).json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
@@ -32,9 +34,10 @@ const create = async (req: Request, res: Response) => {
     const neworder = await store.create(order);
     res.json(neworder);
     res.status(200);
-  } catch (error) {
+  } catch (err) {
     res.status(400);
-    res.json(error);
+    res.json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 

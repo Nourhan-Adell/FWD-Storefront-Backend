@@ -7,7 +7,7 @@ import { User } from '../models/userModel';
 import { Product } from '../models/productModel';
 import { Order } from '../models/orderModel';
 
-describe('Testing all handlers', () => {
+describe('Testing All Handlers:', () => {
   const user: User = {
     firstName: 'Adel',
     secondName: 'Mohamed',
@@ -39,7 +39,7 @@ describe('Testing all handlers', () => {
     });
 
     it('Should return all users', async () => {
-      const res = await request(app).get('/products').set('Authorization', token);
+      const res = await request(app).get('/users').set('Authorization', token);
       expect(res.status).toBe(200);
     });
 

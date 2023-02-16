@@ -1,7 +1,6 @@
 import { Product, porductModel } from '../models/productModel';
 import { User, userModel } from '../models/userModel';
 import { Order, orderModel } from '../models/orderModel';
-import { use } from './server';
 
 const storeProduct = new porductModel();
 const storeUser = new userModel();
@@ -48,8 +47,8 @@ describe('Testing all model methods', () => {
     });
 
     it('show user details', async function () {
-      const showUser = await storeUser.show(user.id || 1);
-      expect(showUser.id === user.id).toBeTruthy();
+      const users = await storeUser.show(user.firstName);
+      expect(users.firstName === user.firstName).toBeTruthy();
     });
   });
 

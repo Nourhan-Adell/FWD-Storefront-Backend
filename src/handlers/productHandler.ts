@@ -11,6 +11,7 @@ const index = async (req: Request, res: Response) => {
     res.status(200).json(products);
   } catch (err) {
     res.status(400).json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
@@ -20,6 +21,7 @@ const show = async (req: Request, res: Response) => {
     res.status(200).json(product);
   } catch (err) {
     res.status(400).json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
@@ -33,10 +35,9 @@ const create = async (req: Request, res: Response): Promise<void> => {
   try {
     const newProduct = await store.create(product);
     res.status(200).json(newProduct);
-  } catch (error) {
-    console.log('error', { error });
-
-    res.status(400).json(error);
+  } catch (err) {
+    res.status(400).json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 

@@ -8,8 +8,8 @@
     "lint": "eslint \"src/**/*.ts\"",
     "prettier": "prettier --config .prettierrc \"src/**/*.ts\" --write",
     "start": "nodemon src/server.ts",
-    "jasmine": "jasmine",
-    "test": "ENV=test && npx tsc && db-migrate --env test up && jasmine && db-migrate db:drop test"
+    "jasmine": "jasmine.ts",
+    "test": "set ENV=test && npx tsc && db-migrate --env test up && jasmine && db-migrate db:drop test"
   },
   "keywords": [],
   "author": "Nourhan",

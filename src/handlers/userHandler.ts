@@ -13,17 +13,19 @@ const index = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(400);
     res.json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
 const show = async (req: Request, res: Response) => {
   try {
-    const order = await store.show(parseInt(req.params.id));
-    res.json(order);
+    const user = await store.show(req.body.firstName);
+    res.json(user);
     res.status(200);
   } catch (err) {
     res.status(400);
     res.json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
@@ -41,6 +43,7 @@ const create = async (req: Request, res: Response) => {
   } catch (err) {
     res.status(400);
     res.json(err);
+    throw new Error(`Error: ${err}`);
   }
 };
 
@@ -74,7 +77,7 @@ const create = async (req: Request, res: Response) => {
 
 const userRoutes = (app: express.Application) => {
   app.get('/users', verifyAuthToken, index);
-  app.get('/users/:id', verifyAuthToken, show);
+  app.get('/users/:firstName', verifyAuthToken, show);
   app.post('/users', create);
   // app.post('/login', logIn);
 };
