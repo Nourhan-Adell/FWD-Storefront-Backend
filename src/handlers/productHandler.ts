@@ -6,13 +6,21 @@ import { verifyAuthToken } from '../middleware/verification';
 const store = new porductModel();
 
 const index = async (req: Request, res: Response) => {
-  const products = await store.index();
-  res.json(products);
+  try {
+    const products = await store.index();
+    res.status(200).json(products);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 };
 
 const show = async (req: Request, res: Response) => {
-  const product = await store.show(parseInt(req.params.id));
-  res.json(product);
+  try {
+    const product = await store.show(parseInt(req.params.id));
+    res.status(200).json(product);
+  } catch (err) {
+    res.status(400).json(err);
+  }
 };
 
 const create = async (req: Request, res: Response): Promise<void> => {
