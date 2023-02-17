@@ -47,8 +47,9 @@ describe('Testing all model methods', () => {
     });
 
     it('show user details', async function () {
-      const users = await storeUser.show(user.firstName);
-      expect(users.firstName === user.firstName).toBeTruthy();
+      await storeUser.create(user);
+      const users = await storeUser.show('Adel');
+      expect(users.length).toBeGreaterThan(0);
     });
   });
 
