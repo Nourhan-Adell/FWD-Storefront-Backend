@@ -22,11 +22,11 @@ export class userModel {
     }
   }
 
-  async show(firstName: string): Promise<User> {
+  async show(firstName: string): Promise<User[]> {
     try {
-      const sql = 'SELECT * FROM users where id = ($1);';
+      const sql = 'SELECT * FROM users where firstName = ($1);';
       const result = await connection.query(sql, [firstName]);
-      return result.rows[0];
+      return result.rows;
     } catch (error) {
       throw new Error(`Couldn't find user of first name = ${firstName}. Error: ${error}`);
     }
