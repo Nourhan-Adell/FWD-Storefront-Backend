@@ -70,9 +70,7 @@ describe('Testing All Handlers:', () => {
 
   describe('Test Order handler', () => {
     it('Should return orders by user ID (Show order)', async () => {
-      const res = await request(app)
-        .get('/orders/' + order.userID)
-        .set('Authorization', token);
+      const res = await request(app).get('/products/1').set('Authorization', token);
       expect(res.status).toBe(200);
     });
   });

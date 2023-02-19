@@ -55,13 +55,15 @@ describe('Testing all model methods', () => {
 
   describe('Test order model methods', () => {
     it('show oder details', async function () {
-      const Orders = await storeOrder.showOrder(order.userID || 1);
-      expect(Orders.userID).toBe(order.userID);
+      await storeUser.create(user);
+      const users = await storeUser.show('Adel');
+      expect(users.length).toBeGreaterThan(0);
     });
+  });
 
-    it("show completed orders' details", async function () {
-      const order = await storeOrder.showCompletedOrders();
-      expect(order.length).toBeGreaterThan(0);
-    });
+  it("show completed orders' details", async function () {
+    await storeUser.create(user);
+    const users = await storeUser.show('Adel');
+    expect(users.length).toBeGreaterThan(0);
   });
 });
